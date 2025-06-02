@@ -1,0 +1,10 @@
+on:
+  repository_dispatch:
+    types: [trigger-s3-pipeline]
+
+jobs:
+  create-s3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create S3 bucket
+        run: aws s3 mb s3://my-new-bucket --region ap-south-1
