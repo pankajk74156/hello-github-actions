@@ -1,0 +1,10 @@
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger pipeline B (S3 bucket creation)
+        uses: nivruttis/repository-dispatch@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: your-org/your-repo
+          event-type: trigger-s3-pipeline
